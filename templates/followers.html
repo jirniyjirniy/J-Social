@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+
+    <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+<body>
+<h1>Followers:</h1>
+{% if user_followers %}
+    {% for v in user_followers %}
+        <br>
+        <span style="color: white; font-size: 27px;"><b><a href="{% url 'profile' v.follower %}">{{ v.follower }}</a></b></span>
+    {% endfor %}
+{% else %}
+    <span style="color: white; font-size: 27px;"><b><a href="">No Followers</a></b></span>
+{% endif %}
+
+<script data-cfasync="false"
+        src="{% static '../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script>
+<script src="{% static 'js/main.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
+
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#    <title>Followers List</title>#}
+{#</head>#}
+{#<body>#}
+{#    <h1>Followers List for {{ username }}</h1>#}
+{#    {% if user_followers %}#}
+{#        <ul>#}
+{#            {% for follower in user_followers %}#}
+{#                <li>{{ follower.follower }}</li>#}
+{#            {% endfor %}#}
+{#        </ul>#}
+{#    {% else %}#}
+{#        <p>Подписчиков нет</p>#}
+{#    {% endif %}#}
+{#</body>#}
+{#</html>#}
+
